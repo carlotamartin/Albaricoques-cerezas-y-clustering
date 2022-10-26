@@ -26,9 +26,9 @@ class albaricoques ():
         return albaricoques
 
 def main():
-    caracteristicasAlbaricoques = [[40,44,41],[45,49,54],[50,54,74],[55,59,100]]
-    cerezas = albaricoques(lista)
-    lista = cerezas.generar_albaricoques(500)
+    lista = [[40,44,41],[45,49,54],[50,54,74],[55,59,100]]
+    albaricoque = albaricoques(lista)
+    lista = albaricoque.generar_albaricoques(500)
 
 if __name__ == "__main__":
     main()
