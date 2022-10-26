@@ -1,7 +1,6 @@
-import frutas
 import random
 
-class albaricoques ():
+class Albaricoques ():
     def __init__(self, lista) :
         self.lista = lista
 
@@ -27,8 +26,11 @@ class albaricoques ():
 
 def main():
     lista = [[40,44,41],[45,49,54],[50,54,74],[55,59,100]]
-    albaricoque = albaricoques(lista)
-    lista = albaricoque.generar_albaricoques(500)
+    albaricoquesss = albaricoques(lista)
+    lista = albaricoquesss.generar_albaricoques(500)
+
+    return lista
+
 
 if __name__ == "__main__":
     main()
