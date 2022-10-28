@@ -47,8 +47,8 @@ def main():
     print(cerezas)
 
     #Creamos los datos de las cerezas
-    datos_cerezas = Datos_Cerezas(500,cerezas)
-    datos_cerezas.generar_cerezas()
+    datos_cerezas = Datos_Cerezas(500,lista)
+    return datos_cerezas.generar_cerezas()
 
 if __name__ == "__main__":
     main()

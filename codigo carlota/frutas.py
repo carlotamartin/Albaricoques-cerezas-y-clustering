@@ -30,12 +30,16 @@ class frutas (Datos_Albaricoques, Datos_Cerezas):
 #Creamos el main
 
 def main():
+    #Llamamos al main de cerezas y albaricoques para obtener los datos
+    lista_cerezas = cerezas.main()
+    lista_albaricoques = albaricoques.main()
+    '''
     lista_cerezas = [[17,19,1,5],[20,21,5,6],[22,23,6,7],[24,25,7,8.5],[26,27,8.5,10],[28,29,10,11.5]]
     datos_cerezas = Datos_Cerezas(500, lista_cerezas)
 
     lista_albaricoques = [[40,44,41],[45,49,54],[50,54,74],[55,59,100]]
     datos_albaricoques = Datos_Albaricoques(500, lista_albaricoques)
-    print(datos_albaricoques)
+    print(datos_albaricoques)''' 
 
 
 
