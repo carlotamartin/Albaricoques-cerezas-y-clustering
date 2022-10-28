@@ -1,0 +1,50 @@
+class Cerezas ():
+    def __init__(self, diam_min, diam_max, peso_min, peso_max) :
+        self.diam_min = diam_min
+        self.diam_max = diam_max
+        self.peso_min = peso_min
+        self.peso_max = peso_max
+
+    def __str__(self) :
+        return 'CEREZAS: \nDiámetro mínimo: {}\n Diámetro máximo: {}\n Peso máximo: {}\n Peso mínimo: '.format(self.diam_min, self.diam_max, self.peso_max, self.peso_min)
+
+
+class datos_cerezas (Cerezas):
+    def __init__ (self, diam_min, diam_max, peso_min, peso_max, numero_observaciones, lista):
+        self.diam_min = diam_min
+        self.diam_max = diam_max
+        self.peso_min = peso_min
+        self.peso_max = peso_max
+        self.numero_observaciones = numero_observaciones
+        self.lista = []
+
+    def añadir_lista (self, diam_min, diam_max, peso_min, peso_max):
+        for i in range (len(diam_min)):
+            self.lista += self.lista.append([diam_min, diam_max, peso_min, peso_max])
+    def generar_cerezas(self, numero_observaciones):
+        cerezas = []
+        random.seed()
+        for iteration in range(numero_observaciones):
+            #elección al azar de una característica
+            cereza = random.choice(self.lista)
+            #Generación de un diámetro
+            diametro = round(random.uniform(cereza[0], cereza[1]),2)
+            #Generación de un peso
+            peso = round(random.uniform(cereza[2], cereza[3]),2)
+            print ("Cereza "+str(iteration)+" "+str(cereza)+" : "+str(diametro)+" - "+str(peso))
+            cerezas.append([diametro,peso])
+
+        return cerezas
+
+
+
+def main():
+    lista = [[17,19,1,5],[20,21,5,6],[22,23,6,7],[24,25,7,8.5],[26,27,8.5,10],[28,29,10,11.5]]
+
+    Cerezas = Cerezas(lista)
+    lista = Cerezas.generar_cerezas(500)
+    return lista
+
+if __name__ == "__main__":
+    main()
+
