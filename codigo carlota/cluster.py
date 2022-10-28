@@ -7,17 +7,16 @@ from sklearn import mixture #para el algortimo de mezclas gausianas
 
 
 class Carga_datos():
-    def __init__(self, df):
-        self.df = df
-
-    def load (self):
+    def __init__(self):
         self.df = pd.read_csv("datas/frutas.csv", names=['DIAMETRO','PESO'], header=None)
-
+    '''
+    def load (self):
+        self.df = pd.read_csv("datas/frutas.csv", names=['DIAMETRO','PESO'], header=None)'''
     def grafica (self):
         self.dr.plot.scatter(x="DIAMETRO",y="PESO")
         plt.show()
 
-class cluster (Carga_datos):
+class Cluster (Carga_datos):
     def __init__(self, df, num_clusters):
         super().__init__(df)
         self.num_clusters = num_clusters
@@ -69,5 +68,16 @@ class cluster (Carga_datos):
 
 
 def main():
-    
+    #Primero cargamos los datos y los cargamos
+    df = Carga_datos()
+    df.grafica()
+
+    #Hecemos el algoritmo Kmeans
+    cluster = Cluster(df,2)
+    cluster.aprendizaje()
+    cluster.adaptacion_cluster([26.98,8.75],[55.7,102.16])
+
+    #Modelo de mezclas gaussianas (GMM)
+    cluster.mezclas_gaussianas()
+
 
