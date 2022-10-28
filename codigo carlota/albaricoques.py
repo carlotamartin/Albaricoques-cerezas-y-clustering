@@ -4,7 +4,6 @@ class Albaricoques ():
     def __init__(self, lista_albaricoques) :
         self.lista_albaricoques = lista_albaricoques
 
-
     def __str__(self) :
         return 'LISTA ALBARICOQUES {}'.format(self.lista_albaricoques)
 
