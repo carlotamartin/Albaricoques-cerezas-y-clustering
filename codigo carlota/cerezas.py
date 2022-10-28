@@ -15,8 +15,8 @@ class Cerezas ():
 
 class Datos_Cerezas (Cerezas):
     def __init__ (self, numero_observaciones, lista_cerezas):
-        super().__init__(lista_cerezas) #heredamos la lista de las cerezas
         self.numero_observaciones = numero_observaciones
+        super().__init__(lista_cerezas) #heredamos la lista de las cerezas
 
     def __str__(self) :
         return 'LISTA CEREZAS: \n {} \n Número de observaciones: {}'.format(self.lista_cerezas, self.numero_observaciones)
@@ -39,7 +39,7 @@ class Datos_Cerezas (Cerezas):
 
 
 def main():
-    lista = [[17,19,1,5],[20,21,5,6],[22,23,6,7],[24,25,7,8.5],[26,27,8.5,10]]
+    lista = [[17,19,1,5],[20,21,5,6],[22,23,6,7],[24,25,7,8.5],[26,27,8.5,10],[28,29,10,11.5]]
     cerezas = Cerezas(lista)
     print(cerezas)
     #Añadimos un dato más de las cerezas

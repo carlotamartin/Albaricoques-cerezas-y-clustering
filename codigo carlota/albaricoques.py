@@ -39,7 +39,7 @@ class Datos_Albaricoques (Albaricoques):
             albaricoques.append([diametro,peso])
         return albaricoques
 def main():
-    lista = [[40,44,41],[45,49,54],[50,54,74]]
+    lista = [[40,44,41],[45,49,54],[50,54,74],[55,59,100]]
     albaricoques = Albaricoques(lista)
     print(albaricoques)
     #Añadimos un dato más de las cerezas
