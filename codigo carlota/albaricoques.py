@@ -48,9 +48,9 @@ def main():
     #Creamos los datos de las cerezas
     datos_albaricoques = Datos_Albaricoques(500, lista)
 
+    lista = datos_albaricoques.generar_albaricoques()
 
-    return datos_albaricoques.generar_albaricoques()
-
+    return lista
 
 if __name__ == "__main__":
     main()

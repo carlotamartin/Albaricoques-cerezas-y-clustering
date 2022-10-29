@@ -7,15 +7,16 @@ import pandas as pd
 #vamos a utilizar el método super() para heredar los métodos de las clases cerezas y albaricoques
 class Frutas (albaricoques.Datos_Albaricoques, cerezas.Datos_Cerezas):
     #Constructor
-    def __init__(self, Cerezas_lista, Albaricoques_lista) :
-        super().__init__(Cerezas_lista, Albaricoques_lista)
+    def __init__(self, Albaricoques_lista,Cerezas_lista) :
+        self.Albaricoques_lista = Albaricoques_lista
+        self.Cerezas_lista = Cerezas_lista
 
     def union_lista(self) :
-        self.lista_cerezas = super().generar_cerezas()
-        self.lista_albaricoques = super().generar_albaricoques()
+        #self.lista_cerezas = super().generar_cerezas()
+        #self.lista_albaricoques = super().generar_albaricoques()
 
         #Unión de la lista
-        frutas = self.lista_cerezas + self.lista_albaricoques
+        frutas = self.Cerezas_lista + self.Albaricoques_lista
 
         print(frutas)
 
@@ -24,6 +25,7 @@ class Frutas (albaricoques.Datos_Albaricoques, cerezas.Datos_Cerezas):
 
         #Guardado de las observaciones en un archivo
         dataFrame = pd.DataFrame(frutas)
+        print(dataFrame.head(10))
         dataFrame.to_csv("datas/frutas.csv", index=False,header=False)
 
 
