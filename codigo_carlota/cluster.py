@@ -6,20 +6,15 @@ from sklearn import mixture #para el algortimo de mezclas gausianas
 
 
 
-class Carga_datos():
-    def __init__(self):
-        self.df = pd.read_csv("datas/frutas.csv", names=['DIAMETRO','PESO'], header=None)
-    '''
-    def load (self):
-        self.df = pd.read_csv("datas/frutas.csv", names=['DIAMETRO','PESO'], header=None)'''
-    def grafica (self):
-        self.dr.plot.scatter(x="DIAMETRO",y="PESO")
-        plt.show()
 
-class Cluster (Carga_datos):
+class Cluster ():
     def __init__(self, df, num_clusters):
-        super().__init__(df)
+        self.df = df
         self.num_clusters = num_clusters
+
+    def grafica (self):
+        self.df.plot.scatter(x="DIAMETRO",y="PESO")
+        plt.show()
 
     def aprendizaje (self):
 
@@ -39,7 +34,7 @@ class Cluster (Carga_datos):
         centers = modelo.cluster_centers_
         plt.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.5)
         plt.show()
-        plt.savefig('plots/modelos.png')
+        plt.savefig('codigo_carlota/plots/modelos.png')
         dump(modelo,'modelos/kmean.joblib')
 
     def adaptacion_cluster(self, cereza, albaricoque):
@@ -79,5 +74,9 @@ def main():
 
     #Modelo de mezclas gaussianas (GMM)
     cluster.mezclas_gaussianas()
+
+
+if __name__ == "__main__":
+    main()
 
 
