@@ -26,7 +26,7 @@ class Frutas (albaricoques.Datos_Albaricoques, cerezas.Datos_Cerezas):
         #Guardado de las observaciones en un archivo
         dataFrame = pd.DataFrame(frutas)
         print(dataFrame.head(10))
-        dataFrame.to_csv("datas/frutas.csv", index=False,header=False)
+        dataFrame.to_csv("codigo_carlota\datas\ frutas.csv", index=False,header=False)
 
 
 #Creamos el main
