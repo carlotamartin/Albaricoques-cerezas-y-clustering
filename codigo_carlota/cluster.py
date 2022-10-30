@@ -34,15 +34,22 @@ class Cluster ():
         plt.savefig('codigo_carlota/plots/modelos.png')
         #dump(modelo,'codigo_carlota/modelos/kmean.joblib')
 
-    def adaptacion_cluster(self, cereza, albaricoque):
+    def adaptacion_cluster(self):
         modelo = KMeans(n_clusters = self.num_clusters)
         modelo.fit(self.df)
-        numCluster = modelo.predict(cereza)
-        print("Número de clúster de las cerezas: "+ str(numCluster))
+        lista_cereza = [[26.98, 8.75]]
+        self.numCluster = modelo.predict(lista_cereza)
+        print("Número de clúster de las cerezas: "+ str(self.numCluster))
 
+        lista_albaricoque = [[55.7, 102.16]]
+        self.numCluster = modelo.predict(lista_albaricoque)
+        print("Número de clúster de los albaricoques: " + str(self.numCluster))
 
-        numCluster = modelo.predict(albaricoque)
-        print("Número de clúster de los albaricoques: " + str(numCluster))
+        #Hemos adaptado nuestros if
+        if int(self.numCluster)=0:
+            print("¡Es un albaricoque!")
+        else:
+            print("¡Es una cereza!")
 
 
     def mezclas_gaussianas(self):
@@ -69,7 +76,7 @@ def main():
     cluster.grafica()
     #Hecemos el algoritmo Kmeans
     cluster.aprendizaje()
-    cluster.adaptacion_cluster([26.98,8.75],[55.7,102.16])
+    cluster.adaptacion_cluster()
 
     #Modelo de mezclas gaussianas (GMM)
     cluster.mezclas_gaussianas()
