@@ -4,12 +4,9 @@ import matplotlib.pyplot as plt
 import scipy.stats as st
 
 class Curva_Gaussiana():
-    def __init__(self, componentes):
-        self.df = pd.read_csv("datas/frutas.csv", names=['DIAMETRO','PESO'], header=None)
+    def __init__(self, df, componentes):
+        self.df = df
         self.componentes = componentes
-    '''
-    def load (self):
-        self.df = pd.read_csv("datas/frutas.csv", names=['DIAMETRO','PESO'], header=None)'''
 
     def curva_3D(self):
         # Extraer x e y
@@ -42,6 +39,8 @@ class Curva_Gaussiana():
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         plt.show()
+        plt.savefig('codigo_carlota/plots/mapa_3d.png')
+
 
         from mpl_toolkits.mplot3d import axes3d, Axes3D
         fig = plt.figure(figsize=(13, 7))
@@ -52,7 +51,15 @@ class Curva_Gaussiana():
         fig.colorbar(surf, shrink=0.5, aspect=5) # añadir barra de color indicando el PDF
         ax.view_init(60, 35)
         plt.show()
+        plt.savefig('codigo_carlota/plots/modelo_3D.png')
+
 
 def main():
-    curva_gaussiana = Curva_Gaussiana(2)
+    #Primero cargamos los datos y los cargamos
+    df = pd.read_csv("codigo_carlota/datas/ frutas.csv", names=['DIAMETRO','PESO'], header=None)
+    curva_gaussiana = Curva_Gaussiana(df, 2)
     curva_gaussiana.curva_3D()
+
+
+if __name__ == "__main__":
+    main()

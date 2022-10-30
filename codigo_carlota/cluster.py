@@ -4,9 +4,6 @@ from sklearn.cluster import KMeans
 from joblib import dump
 from sklearn import mixture #para el algortimo de mezclas gausianas
 
-
-
-
 class Cluster ():
     def __init__(self, df, num_clusters):
         self.df = df
@@ -35,10 +32,11 @@ class Cluster ():
         plt.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.5)
         plt.show()
         plt.savefig('codigo_carlota/plots/modelos.png')
-        dump(modelo,'modelos/kmean.joblib')
+        #dump(modelo,'codigo_carlota/modelos/kmean.joblib')
 
     def adaptacion_cluster(self, cereza, albaricoque):
         modelo = KMeans(n_clusters = self.num_clusters)
+        modelo.fit(self.df)
         numCluster = modelo.predict(cereza)
         print("Número de clúster de las cerezas: "+ str(numCluster))
 
@@ -64,11 +62,12 @@ class Cluster ():
 
 def main():
     #Primero cargamos los datos y los cargamos
-    df = Carga_datos()
-    df.grafica()
-
-    #Hecemos el algoritmo Kmeans
+    df = pd.read_csv("codigo_carlota/datas/ frutas.csv", names=['DIAMETRO','PESO'], header=None)
+    #Creamos el cluster
     cluster = Cluster(df,2)
+    #Gráfica
+    cluster.grafica()
+    #Hecemos el algoritmo Kmeans
     cluster.aprendizaje()
     cluster.adaptacion_cluster([26.98,8.75],[55.7,102.16])
 
