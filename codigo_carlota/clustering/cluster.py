@@ -46,7 +46,7 @@ class Cluster ():
         print("Número de clúster de los albaricoques: " + str(self.numCluster))
 
         #Hemos adaptado nuestros if
-        if int(self.numCluster)=0:
+        if int(self.numCluster) == 0 :
             print("¡Es un albaricoque!")
         else:
             print("¡Es una cereza!")
